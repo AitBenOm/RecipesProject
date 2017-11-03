@@ -4,6 +4,8 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import {Subject} from "rxjs/Subject";
+import "rxjs/Rx";
+import {Http, Response} from "@angular/http";
 
 @Injectable()
 export class RecipeService {
@@ -28,7 +30,7 @@ export class RecipeService {
       ])
   ];
 
-  constructor(private slService: ShoppingListService) {}
+  constructor(private slService: ShoppingListService, private http: Http) {}
 
   getRecipes() {
     return this.recipes.slice();
@@ -61,6 +63,24 @@ export class RecipeService {
   deleteRecipe(index: number){
     this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
+  }
+  saveRecipes(){
+   return this.http.put('https://recipes-ng.firebaseio.com/data.json', this.recipes);
+  }
+  GetRecipes(){
+    return this.http.get('https://recipes-ng.firebaseio.com/data.json').map(
+      (response: Response) =>{
+        const data = response.json();
+        console.log(data);
+        return data;
+      }
+
+    ).subscribe(
+      (recies: Recipe[]) =>{
+        console.log(recies);
+        this.recipes = recies;
+      }
+    );
   }
 
 }
