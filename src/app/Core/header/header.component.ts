@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {RecipeService} from "../recipes/recipe.service";
-import {DataStorageService} from "../shared/data-storage.service";
-import {AuthService} from "../auth.service";
+import {RecipeService} from "../../recipes/recipe.service";
+import {DataStorageService} from "../../shared/data-storage.service";
+import {AuthService} from "../../auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -14,8 +14,6 @@ export class HeaderComponent {
 
   onSaveRecipes(){
     this.dataStorage.saveRecipes();
-    this.router.navigate(['recipes']);
-    console.log('recipes');
   }
   onFetchRecipes(){
     this.dataStorage.getRecipes();
@@ -25,7 +23,7 @@ export class HeaderComponent {
 
   onLogout(){
     this.authService.logout();
-    this.router.navigate(['recipes']);
+    this.router.navigate(['']);
     console.log('recipes');
   }
 }
