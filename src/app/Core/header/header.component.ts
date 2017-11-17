@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {RecipeService} from "../../recipes/recipe.service";
 import {DataStorageService} from "../../shared/data-storage.service";
-import {AuthService} from "../../auth.service";
+import {AuthService} from "../../Auth/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent {
 
-  constructor(private dataStorage: DataStorageService, private authService: AuthService, private router: Router){}
+  constructor(private dataStorage: DataStorageService,  private authService: AuthService, private router: Router){}
 
   onSaveRecipes(){
     this.dataStorage.saveRecipes();
