@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
     SharedModule,
     ShoppingListModule,
     AuthModule,
+    HttpModule,
     CoreModule,
     BrowserModule,
     HttpClientModule,

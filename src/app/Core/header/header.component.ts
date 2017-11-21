@@ -13,7 +13,12 @@ export class HeaderComponent {
   constructor(private dataStorage: DataStorageService,  private authService: AuthService, private router: Router){}
 
   onSaveRecipes(){
-    this.dataStorage.saveRecipes();
+    this.dataStorage.saveRecipes()
+      .subscribe(
+      (response) =>{
+        console.log(response);
+      }
+    );
   }
   onFetchRecipes(){
     this.dataStorage.getRecipes();
