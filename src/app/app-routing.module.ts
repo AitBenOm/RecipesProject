@@ -4,7 +4,7 @@ import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import {HomeComponent} from "./Core/home/home.component";
-import {AuthGuard} from "./auth.guard";
+
 
 
 

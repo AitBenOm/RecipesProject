@@ -9,6 +9,8 @@ import {ShoppingListModule} from "./shopping-list/shopping-list.module";
 import {AuthModule} from "./Auth/auth.module";
 import {CoreModule} from "./Core/core.module";
 import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {shoppingListReducer} from "./shopping-list/Store/shopping-list.reducer";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {HttpClientModule} from "@angular/common/http";
     CoreModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // StoreModule.forRoot({shoppingList: shoppingListReducer})
+    StoreModule.provideStore({shoppingList: shoppingListReducer})
   ],
 
   bootstrap: [AppComponent]
